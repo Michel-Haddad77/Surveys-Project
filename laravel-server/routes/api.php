@@ -29,3 +29,4 @@ Route::group(['middleware' => 'api'], function($router) {
 });
 
 Route::get('/all_surveys', [SurveyController::class, 'getAllSurveys']);
+Route::get('/completed_surveys', [SurveyController::class, 'getCompletedSurveys']);
