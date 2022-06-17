@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Choice;
 use App\Models\Survey;
 use App\Models\User;
+use App\Models\Question;
 
 use Illuminate\Http\Request;
 
@@ -25,10 +28,10 @@ class SurveyController extends Controller
     public function getCompletedSurveys(){
         $completed = auth()->user()->completedSurveys;
 
-
         return response()->json([
             "status" => "Success",
             "data" => $completed
         ], 200);
     }
+
 }

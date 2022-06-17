@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,6 @@ Route::group(['middleware' => 'api'], function($router) {
 
 Route::get('/all_surveys', [SurveyController::class, 'getAllSurveys']);
 Route::get('/completed_surveys', [SurveyController::class, 'getCompletedSurveys']);
+
+Route::get('/get_survey/{survey_id}', [UserController::class, 'getSurvey']);
+Route::post('/submit_survey', [UserController::class, 'submitSurvey']);

@@ -22,7 +22,7 @@ class Question extends Model
     }
 
     //one to many relationship between questions and choices
-    public function questions()
+    public function choices()
     {
         return $this->hasMany(Choice::class);
     }
