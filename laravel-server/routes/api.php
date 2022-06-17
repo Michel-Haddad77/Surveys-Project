@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
+use App\Http\Controllers\SurveyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::group(['middleware' => 'api'], function($router) {
     Route::post('/refresh', [JWTController::class, 'refresh']);
     Route::post('/profile', [JWTController::class, 'profile']);
 });
+
+Route::get('/all_surveys', [SurveyController::class, 'getAllSurveys']);
