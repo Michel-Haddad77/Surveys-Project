@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Survey;
 use App\Models\Choice;
+use App\Models\User;
+use Tymon\JWTAuth\Contracts\Providers\Auth;
 
 class UserController extends Controller
 {
@@ -29,7 +31,16 @@ class UserController extends Controller
     }
 
     public function submitSurvey(Request $request){
-        
+        //update the survey_user pivot table (completed)
+        $user_id = $request->user_id;
+        //$user = User::find($user_id);
+        $user = auth()->user();
+ 
+        $user->completedSurveys()->attach($request->survey_id);
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
     }
 
 
