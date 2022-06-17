@@ -13,6 +13,18 @@ class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    //Create many to many relationship between users and surveys (completed)
+    public function completedSurveys(){
+
+        return $this->belongsToMany(Survey::class); /*add pivot table name as argument in case of error */
+    }
+
+    //Create many to many relationship between users and questions (answers)
+    public function answers(){
+
+        return $this->belongsToMany(Question::class, 'answers');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
