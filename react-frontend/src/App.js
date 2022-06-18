@@ -6,7 +6,7 @@ import SignupForm from "./components/Signup-Form";
 
 function App() {
   function loginUser(){
-    console.log("working");
+    
   };
 
 
