@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::get('/completed_surveys', [SurveyController::class, 'getCompletedSurveys'
 
 Route::get('/get_survey/{survey_id}', [UserController::class, 'getSurvey']);
 Route::post('/submit_survey', [UserController::class, 'submitSurvey']);
+
+Route::post('/create_survey', [AdminController::class, 'createSurvey']);

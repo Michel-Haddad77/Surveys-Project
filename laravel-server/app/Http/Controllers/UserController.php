@@ -42,7 +42,7 @@ class UserController extends Controller
         $answers = $request->answers; 
         //$answers = (array) $answers;
 
-        //loop over each key:value pair and insert them in teh answers table
+        //loop over each key:value pair and insert them in the answers table
         foreach ($answers as $question_id => $answer_content) {
             $user->answers()->attach($question_id, array('content' => $answer_content));
         }
