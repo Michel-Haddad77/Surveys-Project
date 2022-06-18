@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.header{
+  text-align: center;
+  background-color: #49CC34;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
