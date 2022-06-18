@@ -30,16 +30,26 @@ class UserController extends Controller
         ], 200);
     }
 
+    //this function updates the completes surveys (pivot) table 
+    //and inserts the received question_ids and answers in the answers table(pivot)
     public function submitSurvey(Request $request){
         //update the survey_user pivot table (completed)
         $user_id = $request->user_id;
-        //$user = User::find($user_id);
-        $user = auth()->user();
- 
+        $user = User::find($user_id);
         $user->completedSurveys()->attach($request->survey_id);
+
+        //answers is an object sent from the frontend{"question_id": "answer"} 
+        $answers = $request->answers; 
+        //$answers = (array) $answers;
+
+        //loop over each key:value pair and insert them in teh answers table
+        foreach ($answers as $question_id => $answer_content) {
+            $user->answers()->attach($question_id, array('content' => $answer_content));
+        }
 
         return response()->json([
             "status" => "Success",
+            "data" => $answers
         ], 200);
     }
 
