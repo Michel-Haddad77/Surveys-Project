@@ -20,6 +20,10 @@ function Survey(){
 
     return (
         <>
+        <h1>
+            {localStorage.getItem("survey_name")}
+        </h1>
+        
         {questions.map((question) =>(
             console.log(question.content),
             <Question 
