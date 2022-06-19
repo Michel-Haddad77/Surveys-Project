@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Answer from "./Answer";
 
-function Question({question}){
+function Question({question,answers,setAnswers}){
     const [choices, setChoices] = useState([]);
     //var choices = ["empty"];
     
@@ -20,8 +20,9 @@ function Question({question}){
             key={question.id}
             question = {question}
             choices = {choices}
+            answers = {answers}
+            setAnswers = {setAnswers}
         />
-        {/* {renderSwitch()} */}
         </div>
     )
 }

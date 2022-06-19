@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Answer({question,choices}){
+function Answer({question,choices,answers,setAnswers}){
     //console.log(question);
 
     //return an input based on the type
@@ -10,7 +10,14 @@ function Answer({question,choices}){
                 Object.values(choices).map(choice => {
                     return (
                         <>
-                            <input type={question.type} value={choice}/>
+                            <input 
+                                type={question.type} 
+                                value={choice}
+                                onChange={(e) => {
+                                    setAnswers({...answers, [question.id]:e.target.value});
+                                    console.log(answers);
+                                }}    
+                                />
                             <label for={choice}>{choice}</label> <br/>
                         </>
                     );
@@ -22,7 +29,15 @@ function Answer({question,choices}){
                 Object.values(choices).map(choice => {
                     return (
                         <>
-                            <input type={question.type} name={question.id}  value={choice}/>
+                            <input 
+                                type={question.type} 
+                                name={question.id}  
+                                value={choice}
+                                onChange={(e) => {
+                                    setAnswers({...answers, [question.id]:e.target.value});
+                                    console.log(answers);
+                                }} 
+                            />
                             <label for={choice}>{choice}</label> <br/>
                         </>
                     );
@@ -31,10 +46,14 @@ function Answer({question,choices}){
             
         case 'dropdown':
             const options = Object.values(choices).map(choice => {
-               return( <option value={choice}>{choice}</option> );
+               return( <option  value={choice}> {choice} </option> );
             })
             return (
-                <select id={question.id}>
+                <select 
+                    onChange={(e) => {
+                        setAnswers({...answers, [question.id]:e.target.value});
+                        console.log(answers);
+                    }}>
                     {options}
                 </select>
             );
@@ -42,12 +61,19 @@ function Answer({question,choices}){
         case 'range':
             let ranges = Object.values(choices);
             return(
-                <input type="range" id={question.id} min={ranges[0]} max={ranges[1]}></input>
+                <input key={question.id} type="range" id={question.id} min={ranges[0]} max={ranges[1]}></input>
             )
             
         default:
             return (
-                <input type={question.type}></input>
+                <input 
+                    key={question.id} 
+                    type={question.type}
+                    onChange={(e) => {
+                        setAnswers({...answers, [question.id]:e.target.value});
+                        console.log(answers);
+                    }}
+                ></input>
             )
     }
 }
