@@ -60,6 +60,7 @@ input{
   padding-top: 1%;
   background-color: lightgray;
   margin: 2%;
+  cursor: pointer;
 }
 
 .survey-card:hover{
@@ -73,4 +74,5 @@ input{
 .completed{
   text-decoration: line-through;
   background-color: grey;
+  cursor: initial !important;
 }

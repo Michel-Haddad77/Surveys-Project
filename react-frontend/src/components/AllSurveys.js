@@ -1,10 +1,12 @@
 import SurveyCard from "./SurveyCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AllSurveys(){
     const [surveys, setSurveys] = useState([]);
     const [completed, setCompleted] = useState([]);
+    const navigate = useNavigate();
 
     //get all surveys and put them in surveys array on render
     useEffect(()=>{
@@ -48,6 +50,11 @@ function AllSurveys(){
                     key = {survey.id}
                     id={survey.id}
                     title = {survey.name}
+                    onClick = {
+                        function openSurvey(){
+                            navigate("/survey");
+                            localStorage.setItem("survey_id",survey.id)
+                        }}
                 />
             )) }
             </>
