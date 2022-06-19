@@ -4,6 +4,7 @@ import axios from "axios";
 
 function AllSurveys(){
     const [surveys, setSurveys] = useState([]);
+    const [completed, setCompleted] = useState([]);
 
     //get all surveys and put them in surveys array on render
     useEffect(()=>{
@@ -19,19 +20,54 @@ function AllSurveys(){
         })
     },[])
 
+    //get completed surveys and put them in completed array on render
+    useEffect(()=>{
+        let token = localStorage.getItem("token");
+        axios({
+            method: 'get',
+            url: 'http://localhost:8000/api/completed_surveys',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+        }).then(function (response) {
+            
+            let completed_surveys = response.data.data;
+            setCompleted(completed_surveys);
+        }).catch(function(error){
+            console.log(error);
+        })
+    },[])
+
     return (
         <>
-        <div className="all-surveys-container">
+        <div className="surveys-container">
             <h2>All Surveys</h2>
             <>
             {surveys.map((survey) =>(
                 <SurveyCard 
-                    key={survey.id}
+                    key = {survey.id}
+                    id={survey.id}
                     title = {survey.name}
                 />
             )) }
             </>
         </div>
+
+        <div className="surveys-container">
+            <h2>Completed Surveys</h2>
+            <>
+            {completed.length? completed.map((survey) =>(
+                <SurveyCard 
+                    key = {survey.id}
+                    id={survey.id}
+                    title = {survey.name}
+                    style = {"completed"}
+                    
+                />
+            )) : (<p>You haven't completed any surveys yet.Go complete some surveys</p>) }
+            </>
+        </div>
+
         </>
     )
 }

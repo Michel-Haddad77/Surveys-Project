@@ -1,6 +1,6 @@
-function SurveyCard({title}){
+function SurveyCard({title, id, style}){
     return(
-        <div className="survey-card">
+        <div id={id} className={"survey-card " + style}>
             <h3>{title}</h3>
         </div>
     )

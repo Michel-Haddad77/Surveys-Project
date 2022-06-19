@@ -66,6 +66,11 @@ input{
   transform: scale(1.05);
 }
 
-.all-surveys-container{
+.surveys-container{
   margin: 2%;
+}
+
+.completed{
+  text-decoration: line-through;
+  background-color: grey;
 }
