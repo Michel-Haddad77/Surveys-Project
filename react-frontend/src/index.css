@@ -52,3 +52,20 @@ input{
   border-radius: 5px;
 
 }
+
+.survey-card{
+  width: 60%;
+  height: 50px;
+  padding-left: 5%;
+  padding-top: 1%;
+  background-color: lightgray;
+  margin: 2%;
+}
+
+.survey-card:hover{
+  transform: scale(1.05);
+}
+
+.all-surveys-container{
+  margin: 2%;
+}

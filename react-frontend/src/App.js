@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Header from "./components/Header";
-import Form from "./components/Form";
+import LoginForm from "./components/Login-Form";
 import SignupForm from "./components/Signup-Form";
+import AllSurveys from "./components/AllSurveys";
 
 function App() {
-  function loginUser(){
-    
-  };
-
 
   return (
     <BrowserRouter>
@@ -18,7 +15,7 @@ function App() {
       <Route 
         path="/"
         element = {
-          <Form login = {loginUser}/>
+          <LoginForm />
         }
       ></Route>
 
@@ -26,6 +23,13 @@ function App() {
         path="/signup"
         element = {
           <SignupForm />
+        }
+      ></Route>
+
+      <Route
+        path="/all_surveys"
+        element={
+          <AllSurveys />
         }
       ></Route>
     </Routes>

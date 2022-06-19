@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-function Form(){
+function LoginForm(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ function Form(){
             // let id = response.data.id;
             // localStorage.setItem("id", id);
 
-            navigate("/signup");
+            navigate("/all_surveys");
         })
         .catch(function (error){
             //In case of Unauthorization or invalidation
@@ -72,4 +72,4 @@ function Form(){
     );
 };
 
-export default Form;
+export default LoginForm;
