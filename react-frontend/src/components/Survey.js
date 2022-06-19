@@ -4,7 +4,7 @@ import Question from "./Question";
 
 function Survey(){
     const [questions, setQuestions] = useState([]);
-    const [choices, setChoices] = useState([]);
+    
     useEffect(()=>{
         let survey_id = localStorage.getItem("survey_id")
         axios({

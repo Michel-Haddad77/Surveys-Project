@@ -16,7 +16,7 @@ class UserController extends Controller
         
         foreach($questions as $question){
             $type = $question->type;
-            if ($type === "radio_button" or $type ==="dropdown" or $type ==="checkbox" or $type ==="range"){
+            if ($type === "radio" or $type ==="dropdown" or $type ==="checkbox" or $type ==="range"){
                 //create a choices key with the content related to the question
                 $question->choices = Choice::all()->where('question_id','=',$question->id)->map(function ($choice) {
                     return $choice->content;
