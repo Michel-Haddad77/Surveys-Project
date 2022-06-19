@@ -28,8 +28,8 @@ function LoginForm(){
             localStorage.setItem("token", token);
 
             //saving logged in user id in local storage
-            // let id = response.data.id;
-            // localStorage.setItem("id", id);
+            let id = response.data.id;
+            localStorage.setItem("id", id);
 
             navigate("/all_surveys");
         })

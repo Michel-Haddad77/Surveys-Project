@@ -54,6 +54,7 @@ function AllSurveys(){
                         function openSurvey(){
                             navigate("/survey");
                             localStorage.setItem("survey_id",survey.id)
+                            localStorage.setItem("survey_name",survey.name)
                         }}
                 />
             )) }

@@ -76,3 +76,7 @@ input{
   background-color: grey;
   cursor: initial !important;
 }
+
+.question-container{
+  margin: 2%;
+}

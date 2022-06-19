@@ -14,7 +14,7 @@ function Question({question}){
     },[])
     
     return(
-        <>
+        <div className="question-container">
         <p>{question.content}</p>
         <Answer 
             key={question.id}
@@ -22,7 +22,7 @@ function Question({question}){
             choices = {choices}
         />
         {/* {renderSwitch()} */}
-        </>
+        </div>
     )
 }
 

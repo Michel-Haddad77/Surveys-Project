@@ -20,7 +20,6 @@ function Survey(){
 
     return (
         <>
-        <ol>
         {questions.map((question) =>(
             console.log(question.content),
             <Question 
@@ -28,7 +27,6 @@ function Survey(){
                 question ={question}
             />   
         ))}
-        </ol>
         </>
     )
 }
