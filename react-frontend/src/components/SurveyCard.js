@@ -1,7 +1,7 @@
-function SurveyCard(){
+function SurveyCard({title}){
     return(
         <div className="survey-card">
-            <h3>Survey Name</h3>
+            <h3>{title}</h3>
         </div>
     )
 }
