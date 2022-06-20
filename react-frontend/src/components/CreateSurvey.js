@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import CreateQuestion from "./CreateQuestion";
 import Button from "./Button";
+import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 function CreateSurvey(){
+    const navigate = useNavigate();
+
     const [newQuestions, setNewQuestions] = useState([]);
     //states to store the inserted questions and choices to send to the backend
     //allQuestionsArray: [[content,type,[choice1,choice2,...]], ...]
