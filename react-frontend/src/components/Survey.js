@@ -37,7 +37,7 @@ function Survey(){
         headers: {
             "Content-type": "application/json",
           },
-        data: request,//axios automatically stringifies objects to JSON
+        data: request, //axios automatically stringifies objects to JSON
         })
         .then(function (response) {
             console.log(response.data.data);

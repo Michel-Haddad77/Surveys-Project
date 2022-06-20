@@ -61,7 +61,16 @@ function Answer({question,choices,answers,setAnswers}){
         case 'range':
             let ranges = Object.values(choices);
             return(
-                <input key={question.id} type="range" id={question.id} min={ranges[0]} max={ranges[1]}></input>
+                <input 
+                    key={question.id} 
+                    type="range"
+                    min={ranges[0]}
+                    max={ranges[1]}
+                    onChange={(e) => {
+                        setAnswers({...answers, [question.id]:e.target.value});
+                        console.log(answers);
+                    }}
+                ></input>
             )
             
         default:

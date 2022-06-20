@@ -5,6 +5,7 @@ import LoginForm from "./components/Login-Form";
 import SignupForm from "./components/Signup-Form";
 import AllSurveys from "./components/AllSurveys";
 import Survey from "./components/Survey";
+import CreateSurvey from "./components/CreateSurvey";
 
 function App() {
 
@@ -38,6 +39,13 @@ function App() {
           path="/survey"
           element={
             <Survey />
+          }
+        ></Route>
+
+        <Route
+          path="/create_survey"
+          element={
+            <CreateSurvey />
           }
         ></Route>
       </Routes>
