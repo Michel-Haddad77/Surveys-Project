@@ -23,7 +23,7 @@ function Survey(){
     },[])
 
     function submitSurvey(){
-        //create object to send to backend
+        //create object (JSON) to send to backend
         let request = {
             "survey_id":localStorage.getItem("survey_id"),
             "user_id":localStorage.getItem("id"),

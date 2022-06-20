@@ -1,20 +1,35 @@
 import { useState, useEffect } from "react";
 import AddChoices from "./AddChoices";
 
-function CreateQuestion(){
+function CreateQuestion({questionArray,setQuestionArray, choices, setChoices}){
     const [newChoices, setNewChoices] = useState([]);
 
     return (
-        <div>
-            <label>Question Content: </label>
-            <input type="text"></input><br />
+        <div className="question-container">
+            <h2>New Question:</h2>
+            <label>Enter your question: </label>
+            <input 
+                type="text"
+                onChange={(e) => {
+                    setQuestionArray({...questionArray, [0]:e.target.value});
+                    console.log(questionArray);
+                    // console.log(Object.values(questionArray));
+                }}
+            ></input><br />
 
             <label>Question type: </label>
-            <select 
+            <select
                 onChange={(e) => {
+                    //if any type other than text is selected ,create an Addchoices component
                     if(e.target.value !== "text"){
-                        setNewChoices(<AddChoices/>);
+                        setNewChoices(<AddChoices
+                            choices={choices}
+                            setChoices={setChoices}
+                        />);
                     }
+
+                    setQuestionArray({...questionArray, [1]:e.target.value});
+                    console.log(questionArray);
                 }}
             >
                 <option value="text">Text</option>

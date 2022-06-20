@@ -42,15 +42,20 @@ input{
 }
 
 .btn{
-  margin-top: 5%;
-  width:50%;
+  margin-top: 1%;
+  width:200px;
   height: 50px;
-  font-size: x-large;
+  font-size: large;
   margin-bottom: 2%;
   background-color: #49CC34;
   border-color: #49CC34;
   border-radius: 5px;
+  padding: 0 1%;
+}
 
+.btn:hover{
+  background-color: darkgreen;
+  border-color: darkgreen;
 }
 
 .survey-card{
