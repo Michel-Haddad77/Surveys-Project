@@ -2,11 +2,30 @@ import SurveyCard from "./SurveyCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 function AllSurveys(){
     const [surveys, setSurveys] = useState([]);
     const [completed, setCompleted] = useState([]);
     const navigate = useNavigate();
+
+    //function called when logout buttn is pressed
+    function logOut(){
+        let token = localStorage.getItem("token");
+        //linking to logout api
+        axios({
+        method: 'post',
+        url: 'http://localhost:8000/api/logout',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        })
+        .then(function (response) {
+        console.log(response.data.message);
+        localStorage.clear();
+        navigate("/");
+        })
+    }
 
     //get all surveys and put them in surveys array on render
     useEffect(()=>{
@@ -42,6 +61,7 @@ function AllSurveys(){
 
     return (
         <>
+        <Button text={"Logout"} onClick={logOut}/>
         <div className="surveys-container">
             <h2>All Surveys</h2>
             <>

@@ -50,8 +50,27 @@ function Survey(){
         })
     }
 
+    //function called when logout buttn is pressed
+    function logOut(){
+        let token = localStorage.getItem("token");
+        //linking to logout api
+        axios({
+        method: 'post',
+        url: 'http://localhost:8000/api/logout',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        })
+        .then(function (response) {
+        console.log(response.data.message);
+        localStorage.clear();
+        navigate("/");
+        })
+    }
+
     return (
         <>
+        <Button text={"Logout"} onClick={logOut}/>
         <h1>
             {localStorage.getItem("survey_name")}
         </h1>
