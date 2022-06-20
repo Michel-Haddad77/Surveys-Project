@@ -26,9 +26,9 @@
 }
 
 input{
-  width: fit-content;
-  font-size: 22px;
-  line-height: 2;
+  width: 250px;
+  font-size: 15px;
+  line-height: 1;
   padding: 5px;
   margin-bottom: 5px;
   border-radius: 5px;

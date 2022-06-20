@@ -6,7 +6,7 @@ function CreateSurvey(){
     const [newQuestions, setNewQuestions] = useState([]);
 
     function addQuestion(){
-        setNewQuestions([...newQuestions,[<CreateQuestion/>]]);
+        setNewQuestions([...newQuestions,<CreateQuestion/>]);
     }
 
     return (
