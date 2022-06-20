@@ -1,4 +1,2 @@
 # Surveys-Project
-## Tech stacks:
-- Frontend: React
-- Backend: Laravel
+## Stacks: React and Laravel
